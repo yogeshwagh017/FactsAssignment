@@ -1,22 +1,26 @@
 PODS:
+  - MBProgressHUD (1.2.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
   - SwiftLint (0.38.2)
 
 DEPENDENCIES:
+  - MBProgressHUD
   - SDWebImage
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - MBProgressHUD
     - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
 
-PODFILE CHECKSUM: 0763305904ea0b6a023fe7a46b547d0689bd930f
+PODFILE CHECKSUM: e71219394b63d1f04a3abcc6b75052026fc16e27
 
 COCOAPODS: 1.8.4

@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		09C74541355B8B7E0C570FB9 /* Pods_FactsAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E994CE93E385E82773B78E54 /* Pods_FactsAssignment.framework */; };
 		4B6932DBA59FEE21E8867BEA /* Pods_FactsAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439CDAEE52B8278458E7812B /* Pods_FactsAssignmentTests.framework */; };
+		CE2D786A23F284D000A1F455 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D786923F284D000A1F455 /* UIViewController+Ext.swift */; };
+		CE2D786D23F2866E00A1F455 /* FactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2D786C23F2866E00A1F455 /* FactsViewModel.swift */; };
 		CE72139023ED9840009A0C59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72138F23ED983F009A0C59 /* AppDelegate.swift */; };
 		CE72139223ED9840009A0C59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72139123ED9840009A0C59 /* SceneDelegate.swift */; };
 		CE72139923ED9870009A0C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72139823ED9870009A0C59 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		708C8A7BBBD7B9F2EA1E042F /* Pods-FactsAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactsAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-FactsAssignmentTests/Pods-FactsAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		925A5395AB54735CAB501D62 /* Pods-FactsAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactsAssignment.debug.xcconfig"; path = "Target Support Files/Pods-FactsAssignment/Pods-FactsAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 		B2E3678C1C3538CB7B3108FE /* Pods-FactsAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactsAssignment.release.xcconfig"; path = "Target Support Files/Pods-FactsAssignment/Pods-FactsAssignment.release.xcconfig"; sourceTree = "<group>"; };
+		CE2D786923F284D000A1F455 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		CE2D786C23F2866E00A1F455 /* FactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsViewModel.swift; sourceTree = "<group>"; };
 		CE72138C23ED983F009A0C59 /* FactsAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactsAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72138F23ED983F009A0C59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72139123ED9840009A0C59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,8 +97,42 @@
 				4370A7136E1C60F7FCF90EA3 /* Pods-FactsAssignmentTests.debug.xcconfig */,
 				708C8A7BBBD7B9F2EA1E042F /* Pods-FactsAssignmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE2D786623F2838B00A1F455 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CECFC7FC23F11EA4002AF0A9 /* FactsCell.swift */,
+				CECFC7F823F10DA8002AF0A9 /* FactsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CE2D786723F283E700A1F455 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CECFC7FE23F12BD2002AF0A9 /* FactsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE2D786823F2843800A1F455 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CECFC7FA23F11C77002AF0A9 /* UIView+Ext.swift */,
+				CE7213B123EDA1D2009A0C59 /* Reachability.swift */,
+				CE2D786923F284D000A1F455 /* UIViewController+Ext.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		CE2D786B23F2860500A1F455 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE2D786C23F2866E00A1F455 /* FactsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CE72138323ED983E009A0C59 = {
@@ -120,16 +158,15 @@
 		CE72138E23ED983F009A0C59 /* FactsAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				CE7213B123EDA1D2009A0C59 /* Reachability.swift */,
+				CE2D786823F2843800A1F455 /* Helper */,
+				CE2D786723F283E700A1F455 /* Model */,
+				CE2D786623F2838B00A1F455 /* Controller */,
+				CE2D786B23F2860500A1F455 /* ViewModel */,
 				CE72138F23ED983F009A0C59 /* AppDelegate.swift */,
 				CE72139123ED9840009A0C59 /* SceneDelegate.swift */,
 				CE72139823ED9870009A0C59 /* Assets.xcassets */,
 				CE72139A23ED9870009A0C59 /* LaunchScreen.storyboard */,
 				CE72139D23ED9870009A0C59 /* Info.plist */,
-				CECFC7F823F10DA8002AF0A9 /* FactsViewController.swift */,
-				CECFC7FA23F11C77002AF0A9 /* UIView+Ext.swift */,
-				CECFC7FC23F11EA4002AF0A9 /* FactsCell.swift */,
-				CECFC7FE23F12BD2002AF0A9 /* FactsModel.swift */,
 				CECFC80023F12C25002AF0A9 /* FactsService.swift */,
 			);
 			path = FactsAssignment;
@@ -156,6 +193,7 @@
 				CE72138923ED983F009A0C59 /* Frameworks */,
 				CE72138A23ED983F009A0C59 /* Resources */,
 				4BD0EC0215DB78FDE9E37959 /* [CP] Embed Pods Frameworks */,
+				CE2D786523F280E900A1F455 /* Swiftlint Run Script */,
 			);
 			buildRules = (
 			);
@@ -304,6 +342,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CE2D786523F280E900A1F455 /* Swiftlint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"Swift lint not installed\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -313,12 +369,14 @@
 			files = (
 				CE72139023ED9840009A0C59 /* AppDelegate.swift in Sources */,
 				CECFC7FF23F12BD2002AF0A9 /* FactsModel.swift in Sources */,
+				CE2D786D23F2866E00A1F455 /* FactsViewModel.swift in Sources */,
 				CE7213B223EDA1D2009A0C59 /* Reachability.swift in Sources */,
 				CECFC7FB23F11C77002AF0A9 /* UIView+Ext.swift in Sources */,
 				CECFC7FD23F11EA4002AF0A9 /* FactsCell.swift in Sources */,
 				CE72139223ED9840009A0C59 /* SceneDelegate.swift in Sources */,
 				CECFC7F923F10DA8002AF0A9 /* FactsViewController.swift in Sources */,
 				CECFC80123F12C25002AF0A9 /* FactsService.swift in Sources */,
+				CE2D786A23F284D000A1F455 /* UIViewController+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

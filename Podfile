@@ -8,6 +8,7 @@ target 'FactsAssignment' do
   # Pods for FactsAssignment
 pod 'SDWebImage'
 pod 'SwiftLint'
+pod 'MBProgressHUD'
   target 'FactsAssignmentTests' do
     inherit! :search_paths
     # Pods for testing
