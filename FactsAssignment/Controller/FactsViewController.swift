@@ -5,7 +5,6 @@
 //  Created by kushal choudhari on 10/02/20.
 //  Copyright © 2020 Yogesh Wagh. All rights reserved.
 //
-
 import UIKit
 
 class FactsViewController: UIViewController {
@@ -20,15 +19,25 @@ class FactsViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureFactsTableview()
         
-        factsViewModel.fetchFacts { (result) in
-            switch result
+        checkInternetConnection { (connection) in
+            if(connection)
             {
-            case .success:
-                DispatchQueue.main.async {
-                    self.factsTableView.reloadData()
-                    self.title = self.factsViewModel.getScreenTitle()
+                self.showSpinner(withTitle: "Loading..")
+                self.factsViewModel.fetchFacts { (result) in
+                    self.hideSpinner()
+                    switch result
+                    {
+                    case .success:
+                        DispatchQueue.main.async {
+                            self.factsTableView.reloadData()
+                            self.title = self.factsViewModel.getScreenTitle()
+                        }
+                    case .failure(let error) :
+                        DispatchQueue.main.async {
+                            self.showErrorMessage(title: "Service Error", errorMessage: error.localizedDescription)
+                        }
+                    }
                 }
-            case .failure: break
             }
         }
     }
@@ -48,25 +57,34 @@ class FactsViewController: UIViewController {
     
     @objc func handleRefreshData()
     {
-        factsViewModel.fetchFacts { (result) in
-            switch result
+        checkInternetConnection { (connection) in
+            if(connection)
             {
-            case .success:
-                DispatchQueue.main.async {
-                    self.factsTableView.reloadData()
-                    self.title = self.factsViewModel.getScreenTitle()
-                    self.factsTableView.refreshControl?.endRefreshing()
-                }
-            case .failure:
-                DispatchQueue.main.async {
-                    self.factsTableView.refreshControl?.endRefreshing()
+                self.showSpinner(withTitle: "Loading..")
+                self.factsViewModel.fetchFacts { (result) in
+                    self.hideSpinner()
+                    switch result
+                    {
+                    case .success:
+                        DispatchQueue.main.async {
+                            self.factsTableView.reloadData()
+                            self.title = self.factsViewModel.getScreenTitle()
+                            self.factsTableView.refreshControl?.endRefreshing()
+                        }
+                    case .failure(let error) :
+                        DispatchQueue.main.async {
+                            self.showErrorMessage(title: "Service Error", errorMessage: error.localizedDescription)
+                            self.factsTableView.refreshControl?.endRefreshing()
+                        }
+                    }
                 }
             }
-            
+            else
+            {
+                self.factsTableView.refreshControl?.endRefreshing()
+            }
         }
-        
     }
-    
 }
 
 extension FactsViewController: UITableViewDelegate, UITableViewDataSource{
@@ -78,9 +96,6 @@ extension FactsViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "FactsCell") as! FactsCell
         let fact =  factsViewModel.getFacts(atIndex: indexPath.row)
         cell.set(fact: fact)
-        
         return cell
     }
-    
 }
-
