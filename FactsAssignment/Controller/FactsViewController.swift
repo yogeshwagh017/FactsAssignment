@@ -15,7 +15,8 @@ class FactsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .lightGray
+        
         // Do any additional setup after loading the view.
         configureFactsTableview()
         
