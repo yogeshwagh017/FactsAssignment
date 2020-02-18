@@ -9,14 +9,14 @@
 import UIKit
 
 extension UIView {
-     
-    func setConstraints(to superview:UIView){
+
+    func setConstraints(to superview: UIView) {
         let guide = superview.safeAreaLayoutGuide
         translatesAutoresizingMaskIntoConstraints = false
         topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
         leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
         bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
-        
+
     }
 }

@@ -7,6 +7,7 @@ target 'FactsAssignment' do
 
   # Pods for FactsAssignment
 pod 'SDWebImage'
+pod 'ReachabilitySwift'
 pod 'SwiftLint'
 pod 'MBProgressHUD'
   target 'FactsAssignmentTests' do

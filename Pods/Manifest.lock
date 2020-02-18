@@ -1,26 +1,30 @@
 PODS:
   - MBProgressHUD (1.2.0)
+  - ReachabilitySwift (5.0.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
-  - SwiftLint (0.38.2)
+  - SwiftLint (0.39.1)
 
 DEPENDENCIES:
   - MBProgressHUD
+  - ReachabilitySwift
   - SDWebImage
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - MBProgressHUD
+    - ReachabilitySwift
     - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
-  SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: e71219394b63d1f04a3abcc6b75052026fc16e27
+PODFILE CHECKSUM: 60993d7d748e5f479fab296db11914bd2d4ca83b
 
 COCOAPODS: 1.8.4

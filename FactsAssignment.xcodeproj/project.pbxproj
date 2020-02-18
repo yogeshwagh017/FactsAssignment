@@ -16,7 +16,7 @@
 		CE72139923ED9870009A0C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72139823ED9870009A0C59 /* Assets.xcassets */; };
 		CE72139C23ED9870009A0C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72139A23ED9870009A0C59 /* LaunchScreen.storyboard */; };
 		CE7213A723ED9871009A0C59 /* FactsAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7213A623ED9871009A0C59 /* FactsAssignmentTests.swift */; };
-		CE7213B223EDA1D2009A0C59 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7213B123EDA1D2009A0C59 /* Reachability.swift */; };
+		CE872E4223FC0E8200AD7BFD /* Facts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE872E4123FC0E8200AD7BFD /* Facts.swift */; };
 		CECFC7F923F10DA8002AF0A9 /* FactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFC7F823F10DA8002AF0A9 /* FactsViewController.swift */; };
 		CECFC7FB23F11C77002AF0A9 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFC7FA23F11C77002AF0A9 /* UIView+Ext.swift */; };
 		CECFC7FD23F11EA4002AF0A9 /* FactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFC7FC23F11EA4002AF0A9 /* FactsCell.swift */; };
@@ -51,7 +51,7 @@
 		CE7213A223ED9871009A0C59 /* FactsAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FactsAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7213A623ED9871009A0C59 /* FactsAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsAssignmentTests.swift; sourceTree = "<group>"; };
 		CE7213A823ED9871009A0C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE7213B123EDA1D2009A0C59 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		CE872E4123FC0E8200AD7BFD /* Facts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facts.swift; sourceTree = "<group>"; };
 		CECFC7F823F10DA8002AF0A9 /* FactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsViewController.swift; sourceTree = "<group>"; };
 		CECFC7FA23F11C77002AF0A9 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		CECFC7FC23F11EA4002AF0A9 /* FactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsCell.swift; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				CECFC7FE23F12BD2002AF0A9 /* FactsModel.swift */,
+				CE872E4123FC0E8200AD7BFD /* Facts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				CECFC7FA23F11C77002AF0A9 /* UIView+Ext.swift */,
-				CE7213B123EDA1D2009A0C59 /* Reachability.swift */,
 				CE2D786923F284D000A1F455 /* UIViewController+Ext.swift */,
 			);
 			path = Helper;
@@ -158,6 +158,7 @@
 		CE72138E23ED983F009A0C59 /* FactsAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				CE872E4323FC245C00AD7BFD /* Service */,
 				CE2D786823F2843800A1F455 /* Helper */,
 				CE2D786723F283E700A1F455 /* Model */,
 				CE2D786623F2838B00A1F455 /* Controller */,
@@ -167,7 +168,6 @@
 				CE72139823ED9870009A0C59 /* Assets.xcassets */,
 				CE72139A23ED9870009A0C59 /* LaunchScreen.storyboard */,
 				CE72139D23ED9870009A0C59 /* Info.plist */,
-				CECFC80023F12C25002AF0A9 /* FactsService.swift */,
 			);
 			path = FactsAssignment;
 			sourceTree = "<group>";
@@ -179,6 +179,14 @@
 				CE7213A823ED9871009A0C59 /* Info.plist */,
 			);
 			path = FactsAssignmentTests;
+			sourceTree = "<group>";
+		};
+		CE872E4323FC245C00AD7BFD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CECFC80023F12C25002AF0A9 /* FactsService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"Swift lint not installed\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -368,9 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72139023ED9840009A0C59 /* AppDelegate.swift in Sources */,
+				CE872E4223FC0E8200AD7BFD /* Facts.swift in Sources */,
 				CECFC7FF23F12BD2002AF0A9 /* FactsModel.swift in Sources */,
 				CE2D786D23F2866E00A1F455 /* FactsViewModel.swift in Sources */,
-				CE7213B223EDA1D2009A0C59 /* Reachability.swift in Sources */,
 				CECFC7FB23F11C77002AF0A9 /* UIView+Ext.swift in Sources */,
 				CECFC7FD23F11EA4002AF0A9 /* FactsCell.swift in Sources */,
 				CE72139223ED9840009A0C59 /* SceneDelegate.swift in Sources */,

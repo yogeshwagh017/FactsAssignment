@@ -8,15 +8,7 @@
 
 import UIKit
 
-struct FactsModel: Decodable
-{
-    let title:String
-    let rows:[Facts]
-}
-
-struct Facts:Decodable
-{
-    let title:String?
-    let description:String?
-    let imageHref:String?
+struct FactsModel: Decodable {
+    let title: String
+    let rows: [Facts]
 }
